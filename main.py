@@ -1,15 +1,10 @@
-import customtkinter
+from app import mainApp
+from first_page import firstPage
 
-class App(customtkinter.CTk):
-    def __init__(self):
-        super().__init__()
-        self.geometry("400x150")
+def main():
+    app = mainApp(width=400, height=550)
+    firstPage(app)
+    app.mainloop()
 
-        self.button = customtkinter.CTkButton(self, text="my button", command=self.button_callbck)
-        self.button.pack(padx=20, pady=20)
-
-    def button_callbck(self):
-        print("button clicked")
-
-app = App()
-app.mainloop()
+if __name__ == '__main__':
+    main()
