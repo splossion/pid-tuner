@@ -6,7 +6,7 @@ class App(customtkinter.CTk):
         self.geometry("400x150")
 
         self.button = customtkinter.CTkButton(self, text="my button", command=self.button_callbck)
-        self.button.pack(padx=20, pady=20)
+        self.button.pack()
 
     def button_callbck(self):
         print("button clicked")
