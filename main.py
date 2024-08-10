@@ -1,21 +1,18 @@
 import customtkinter as ctk
-from k_slider import kSlider
-from frame import myFrame
 from plot import realTimePlotApp
+from frame import myFrame
+from k_tracker import kTracker
 
 app = ctk.CTk()
 app.geometry("750x750")
 
-# MANUAL TUNING
+slider_tuning_frame = myFrame(app, 0, 0)
+manual_tuning_frame = myFrame(app, 1, 0)
+kp = kTracker("Kp", slider_tuning_frame, manual_tuning_frame, 0, 0)
+ki = kTracker("Ki", slider_tuning_frame, manual_tuning_frame, 2, 0)
+kd = kTracker("Kd", slider_tuning_frame, manual_tuning_frame, 4, 0)
 
-manual_tuning_frame = myFrame(app, 0, 0)
-plot_frame = myFrame(app, 0, 1)
+plot_frame = myFrame(app, 0, 1, 2, 2)
 plot = realTimePlotApp(plot_frame)
-
-kp = kSlider(manual_tuning_frame, "Kp", 0, 0)
-ki = kSlider(manual_tuning_frame, "Ki", 2, 0)
-ki = kSlider(manual_tuning_frame, "Kd", 4, 0)
-
-
 
 app.mainloop()
